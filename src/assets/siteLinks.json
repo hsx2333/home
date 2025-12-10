@@ -1,37 +1,47 @@
 [
   {
     "icon": "Blog",
-    "name": "博客",
-    "link": "https://blog.imsyy.top/"
+    "name": "主页",
+    "link": "https://cdn.5207777.xyz/1.html"
   },
   {
     "icon": "Cloud",
     "name": "网盘",
-    "link": "https://pan.imsyy.top/"
+    "link": "https://pan.5207777.xyz/"
   },
   {
     "icon": "CompactDisc",
     "name": "音乐",
-    "link": "https://music.imsyy.top/"
+    "link": "https://www.fangpi.net/"
   },
   {
     "icon": "Compass",
-    "name": "起始页",
-    "link": "https://nav.imsyy.top/"
+    "name": "图片转换",
+    "link": "https://imageresizer.com/zh"
   },
   {
     "icon": "Book",
-    "name": "网址集",
-    "link": "https://web.imsyy.top/"
+    "name": "网速测试",
+    "link": "https://fast.com/zh/cn/"
   },
   {
     "icon": "Fire",
-    "name": "今日热榜",
-    "link": "https://hot.imsyy.top/"
+    "name": "视频下载",
+    "link": "https://dy.kukutool.com/"
   },
   {
     "icon": "LaptopCode",
-    "name": "站点监测",
-    "link": "https://status.imsyy.top/"
+    "name": "图标大全",
+    "link": "https://www.flaticon.com/"
+  },
+  {
+    "icon": "Book",
+    "name": "Emoji大全",
+    "link": "https://emojipedia.org/zh"
+  },
+  {
+    "icon": "Book",
+    "name": "视频下载",
+    "link": "https://tubedown.cn/"
   }
 ]
