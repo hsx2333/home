@@ -105,14 +105,15 @@ watch(
       transform: translateY(-8px);
       font-family: "Pacifico-Regular";
 
-.bg {
-  font-size: 2.8rem;
-}
+    .bg {
+      font-size: 2.8rem;
+    }
 
-.sm {
-  margin-left: 6px;
-  font-size: 1.4rem;
-}
+    .sm {
+      margin-left: 6px;
+      font-size: 1.4rem;
+    }
+  }
 
     @media (max-width: 768px) {
       .logo-img {
