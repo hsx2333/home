@@ -41,7 +41,7 @@ const siteLogo = import.meta.env.VITE_SITE_MAIN_LOGO;
 // 站点链接
 const siteUrl = computed(() => {
   const url = import.meta.env.VITE_SITE_URL;
-  if (!url) return "imsyy.top".split(".");
+  if (!url) return "top".split(".");
   // 判断协议前缀
   if (url.startsWith("http://") || url.startsWith("https://")) {
     const urlFormat = url.replace(/^(https?:\/\/)/, "");
@@ -105,18 +105,15 @@ watch(
       transform: translateY(-8px);
       font-family: "Pacifico-Regular";
 
-      .bg {
-        font-size: 5rem;
-      }
+.bg {
+  font-size: 2.8rem;
+}
 
-      .sm {
-        margin-left: 6px;
-        font-size: 2rem;
-        @media (min-width: 721px) and (max-width: 789px) {
-          display: none;
-        }
-      }
-    }
+.sm {
+  margin-left: 6px;
+  font-size: 1.4rem;
+}
+
     @media (max-width: 768px) {
       .logo-img {
         width: 100px;
