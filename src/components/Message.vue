@@ -20,6 +20,12 @@
             <p>{{ descriptionText.hello }}</p>
             <p>{{ descriptionText.text }}</p>
           </div>
+            <img
+              v-if="visible"
+              class="logo-img"
+              :src="logoList[logoIndex]"
+              alt="logo"
+            />
         </Transition>
         <Icon size="16">
           <QuoteRight />
@@ -34,10 +40,37 @@ import { Icon } from "@vicons/utils";
 import { QuoteLeft, QuoteRight } from "@vicons/fa";
 import { Error } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
+import { ref, onMounted } from "vue";
 const store = mainStore();
 
 // 主页站点logo
-const siteLogo = import.meta.env.VITE_SITE_MAIN_LOGO;
+// 旧版两张轮播图
+const logoList = [
+  "/images/icon/logo.png",
+  "/images/icon/logo2.png",
+];
+
+// 当前显示 index
+const logoIndex = ref(0);
+
+// 淡入淡出控制
+const visible = ref(true);
+
+onMounted(() => {
+  setInterval(() => {
+    // fade out
+    visible.value = false;
+
+    setTimeout(() => {
+      // 更新 index
+      logoIndex.value = (logoIndex.value + 1) % logoList.length;
+
+      // fade in
+      visible.value = true;
+    }, 400); // fade out 的时间
+  }, 4000); // 切换间隔
+});
+
 // 站点链接
 const siteUrl = computed(() => {
   const url = import.meta.env.VITE_SITE_URL;
@@ -88,7 +121,17 @@ watch(
 </script>
 
 <style lang="scss" scoped>
-.message {
+  .message {
+    .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity .4s ease;
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+  }
+
   .logo {
     display: flex;
     flex-direction: row;
