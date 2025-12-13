@@ -1,22 +1,19 @@
 <template>
-  <div :class="store.backgroundShow ? 'cover show' : 'cover'">
-    <!-- 渐变背景 Canvas -->
-    <canvas id="canvas-basic" class="gradient-bg"></canvas>
-  </div>
+  <canvas ref="canvasRef" class="gradient-bg"></canvas>
 </template>
 
 <script setup>
-import { onMounted, onBeforeUnmount } from "vue";
+import { onMounted, onBeforeUnmount, ref, nextTick } from "vue";
 import Granim from "granim";
-import { mainStore } from "@/store";
 
-const store = mainStore();
+const canvasRef = ref(null);
+let granim = null;
 
-let granimInstance = null;
+onMounted(async () => {
+  await nextTick();
 
-onMounted(() => {
-  granimInstance = new Granim({
-    element: "#canvas-basic",
+  granim = new Granim({
+    element: canvasRef.value,
     direction: "left-right",
     isPausedWhenNotInView: true,
     states: {
@@ -29,37 +26,23 @@ onMounted(() => {
           ["#a8edea", "#fed6e3"],
           ["#9890e3", "#b1f4cf"],
         ],
-        transitionSpeed: 8000,
+        transitionSpeed: 6000,
       },
     },
   });
 });
 
 onBeforeUnmount(() => {
-  if (granimInstance) {
-    granimInstance.destroy();
-    granimInstance = null;
-  }
+  granim?.destroy?.();
 });
 </script>
 
-<style lang="scss" scoped>
-.cover {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.6s ease;
-
-  &.show {
-    opacity: 1;
-  }
-}
-
+<style scoped>
 .gradient-bg {
-  position: absolute;
+  position: fixed;
   inset: 0;
   width: 100%;
   height: 100%;
+  z-index: -999;
 }
 </style>
