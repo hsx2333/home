@@ -127,7 +127,7 @@ watch(
   box-shadow: none;
 
   transform: rotate(0deg);
-  transition: transform 0.8s ease-in-out;
+  transition: transform 0.6s cubic-bezier(.34, 1.56, .64, 1);
   will-change: transform;
 }
 
