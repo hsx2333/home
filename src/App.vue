@@ -2,7 +2,48 @@
   <!-- 加载 -->
   <Loading />
   <!-- 壁纸 -->
-  <Background @loadComplete="loadComplete" />
+    <!-- 渐变背景 Canvas -->
+  <canvas id="canvas-basic"></canvas>
+
+  <!-- 页面内容 -->
+  <router-view />
+</template>
+
+<script setup>
+import { onMounted } from "vue";
+import Granim from "granim";
+
+onMounted(() => {
+  new Granim({
+    element: "#canvas-basic",
+    direction: "left-right",
+    isPausedWhenNotInView: true,
+    states: {
+      "default-state": {
+        gradients: [
+          ["#a18cd1", "#fbc2eb"],
+          ["#fff1eb", "#ace0f9"],
+          ["#d4fc79", "#96e6a1"],
+          ["#a1c4fd", "#c2e9fb"],
+          ["#a8edea", "#fed6e3"],
+          ["#9890e3", "#b1f4cf"],
+        ],
+      },
+    },
+  });
+});
+</script>
+
+<style>
+/* 注意：这里不要 scoped */
+#canvas-basic {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -999;
+}
+</style>
   <!-- 主界面 -->
   <Transition name="fade" mode="out-in">
     <main id="main" v-if="store.imgLoadStatus">
