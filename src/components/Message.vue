@@ -117,7 +117,9 @@ watch(
   position: relative;
   width: 120px;
   height: 120px;
-
+  flex-shrink: 0;
+  box-sizing: border-box;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid rgba(255, 255, 255, 0.75);
