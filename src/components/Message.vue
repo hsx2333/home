@@ -4,6 +4,7 @@
     <!-- Logo -->
   <div class="logo">
 
+<div class="logo-img-wrapper">
   <img
     v-for="(logo, index) in logoList"
     :key="logo"
@@ -12,6 +13,7 @@
     :class="{ active: index === logoIndex }"
     alt="logo"
   />
+</div>
 
       <div :class="{ name: true, 'text-hidden': true, long: siteUrl[0].length >= 6 }">
         <span class="bg">{{ siteUrl[0] }}</span>
@@ -118,13 +120,14 @@ watch(
   flex-shrink: 0;
   box-sizing: border-box;
   aspect-ratio: 1 / 1;
+
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid rgba(255, 255, 255, 0.75);
-  box-shadow:
-    0 0 0 6px rgba(255, 255, 255, 0.15),
-    0 8px 24px rgba(0, 0, 0, 0.25);
+
+  border: none;
+  box-shadow: none;
 }
+
 
 .fade-logo {
   position: absolute;
