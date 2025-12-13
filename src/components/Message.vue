@@ -4,7 +4,6 @@
     <!-- Logo -->
   <div class="logo">
     <Transition name="fade">
-<div class="logo-img">
   <img
     v-for="(logo, index) in logoList"
     :key="logo"
@@ -13,7 +12,6 @@
     :class="{ active: index === logoIndex }"
     alt="logo"
   />
-</div>
   </Transition>
       <div :class="{ name: true, 'text-hidden': true, long: siteUrl[0].length >= 6 }">
         <span class="bg">{{ siteUrl[0] }}</span>
