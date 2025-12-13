@@ -3,7 +3,7 @@
   <div class="message">
     <!-- Logo -->
   <div class="logo">
-    <Transition name="fade">
+
 <div class="logo-img-wrapper">
   <img
     v-for="(logo, index) in logoList"
@@ -14,7 +14,7 @@
     alt="logo"
   />
 </div>
-  </Transition>
+
       <div :class="{ name: true, 'text-hidden': true, long: siteUrl[0].length >= 6 }">
         <span class="bg">{{ siteUrl[0] }}</span>
         <span class="sm">.{{ siteUrl[1] }}</span>
