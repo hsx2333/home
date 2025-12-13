@@ -114,6 +114,12 @@ watch(
 <style lang="scss" scoped>
   .message {
 .logo-img-wrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+  overflow: hidden;
   border: 3px solid rgba(255, 255, 255, 0.75);
   box-shadow:
     0 0 0 6px rgba(255, 255, 255, 0.15),
