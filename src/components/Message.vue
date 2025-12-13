@@ -118,14 +118,16 @@ watch(
   width: 120px;
   height: 120px;
   flex-shrink: 0;
-  box-sizing: border-box;
   aspect-ratio: 1 / 1;
-
+  box-sizing: content-box;
   border-radius: 50%;
   overflow: hidden;
 
   border: none;
   box-shadow: none;
+
+  animation: logo-rotate 20s linear infinite;
+  will-change: transform;
 }
 
 
