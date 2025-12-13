@@ -126,9 +126,15 @@ watch(
   border: none;
   box-shadow: none;
 
-  animation: logo-rotate 20s linear infinite;
+  transform: rotate(0deg);
+  transition: transform 0.8s ease-in-out;
   will-change: transform;
 }
+
+.logo-img-wrapper:hover {
+  transform: rotate(360deg);
+}
+
 
 
 .fade-logo {
