@@ -2,7 +2,7 @@
   <!-- 加载 -->
   <Loading />
   <!-- 壁纸 -->
-  <Background @loadComplete="loadComplete" />
+  <Background />
   <!-- 主界面 -->
   <Transition name="fade" mode="out-in">
     <main id="main" v-if="store.imgLoadStatus">
@@ -79,7 +79,7 @@ watch(
 onMounted(() => {
   // 自定义鼠标
   cursorInit();
-
+store.setImgLoadStatus(true);
   // 屏蔽右键
   document.oncontextmenu = () => {
     ElMessage({
