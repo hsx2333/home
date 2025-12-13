@@ -2,8 +2,16 @@
   <!-- 基本信息 -->
   <div class="message">
     <!-- Logo -->
-    <div class="logo">
-      <img class="logo-img" :src="siteLogo" alt="logo" />
+  <div class="logo">
+    <Transition name="fade">
+      <img
+        v-if="visible"
+        :key="logoIndex"
+        class="logo-img"
+        :src="logoList[logoIndex]"
+        alt="logo"
+      />
+  </Transition>
       <div :class="{ name: true, 'text-hidden': true, long: siteUrl[0].length >= 6 }">
         <span class="bg">{{ siteUrl[0] }}</span>
         <span class="sm">.{{ siteUrl[1] }}</span>
@@ -20,12 +28,6 @@
             <p>{{ descriptionText.hello }}</p>
             <p>{{ descriptionText.text }}</p>
           </div>
-            <img
-              v-if="visible"
-              class="logo-img"
-              :src="logoList[logoIndex]"
-              alt="logo"
-            />
         </Transition>
         <Icon size="16">
           <QuoteRight />
