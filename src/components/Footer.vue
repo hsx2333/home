@@ -8,14 +8,13 @@
           <span v-if="startYear < fullYear"
             class="site-start">
             {{ startYear }}
-            -
           </span>
           {{ fullYear }}
           <a :href="siteUrl">{{ siteAuthor }}</a>
         </span>
         <!-- 以下信息请不要修改哦 -->
         <span class="hidden">
-          &amp;&nbsp;Made&nbsp;by
+          &nbsp;Made&nbsp;by
           <a :href="config.github" target="_blank">
             {{ config.author }}
           </a>
