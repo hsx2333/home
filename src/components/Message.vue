@@ -4,13 +4,16 @@
     <!-- Logo -->
   <div class="logo">
     <Transition name="fade">
-      <img
-        v-if="visible"
-        :key="logoIndex"
-        class="logo-img"
-        :src="logoList[logoIndex]"
-        alt="logo"
-      />
+<div class="logo-img-wrapper">
+  <img
+    v-for="(logo, index) in logoList"
+    :key="logo"
+    :src="logo"
+    class="logo-img fade-logo"
+    :class="{ active: index === logoIndex }"
+    alt="logo"
+  />
+</div>
   </Transition>
       <div :class="{ name: true, 'text-hidden': true, long: siteUrl[0].length >= 6 }">
         <span class="bg">{{ siteUrl[0] }}</span>
@@ -45,33 +48,19 @@ import { mainStore } from "@/store";
 import { ref, onMounted } from "vue";
 const store = mainStore();
 
-// 主页站点logo
-// 旧版两张轮播图
 const logoList = [
   "/images/icon/logo.png",
   "/images/icon/logo2.png",
 ];
 
-// 当前显示 index
 const logoIndex = ref(0);
-
-// 淡入淡出控制
-const visible = ref(true);
 
 onMounted(() => {
   setInterval(() => {
-    // fade out
-    visible.value = false;
-
-    setTimeout(() => {
-      // 更新 index
-      logoIndex.value = (logoIndex.value + 1) % logoList.length;
-
-      // fade in
-      visible.value = true;
-    }, 400); // fade out 的时间
-  }, 4000); // 切换间隔
+    logoIndex.value = (logoIndex.value + 1) % logoList.length;
+  }, 4000);
 });
+
 
 // 站点链接
 const siteUrl = computed(() => {
@@ -124,15 +113,23 @@ watch(
 
 <style lang="scss" scoped>
   .message {
-    .fade-enter-active,
-  .fade-leave-active {
-    transition: opacity .4s ease;
-  }
+.logo-img-wrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
 
-  .fade-enter-from,
-  .fade-leave-to {
-    opacity: 0;
-  }
+.fade-logo {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.fade-logo.active {
+  opacity: 1;
+}
 
   .logo {
     display: flex;
