@@ -4,16 +4,16 @@
     <!-- Logo -->
   <div class="logo">
     <Transition name="fade">
-    <div class="ck-slide">
-        <ul class="ck-slide-wrapper">
-            <li>
-                <img src="/images/icon/logo.png" alt="">
-            </li>
-            <li style="display:none">
-                <img src="/images/icon/logo2.png" alt="">
-            </li>
-        </ul>
-            </div>
+<div class="logo-img-wrapper">
+  <img
+    v-for="(logo, index) in logoList"
+    :key="logo"
+    :src="logo"
+    class="logo-img fade-logo"
+    :class="{ active: index === logoIndex }"
+    alt="logo"
+  />
+</div>
   </Transition>
       <div :class="{ name: true, 'text-hidden': true, long: siteUrl[0].length >= 6 }">
         <span class="bg">{{ siteUrl[0] }}</span>
@@ -39,15 +39,28 @@
     </div>
   </div>
 </template>
-	<link rel="stylesheet" href="assets/slide.css">
-    <script src="assets/jquery.min.js"></script>
-    <script src="assets/slide.js"></script>
+
 <script setup>
 import { Icon } from "@vicons/utils";
 import { QuoteLeft, QuoteRight } from "@vicons/fa";
 import { Error } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
+import { ref, onMounted } from "vue";
 const store = mainStore();
+
+const logoList = [
+  "/images/icon/logo.png",
+  "/images/icon/logo2.png",
+];
+
+const logoIndex = ref(0);
+
+onMounted(() => {
+  setInterval(() => {
+    logoIndex.value = (logoIndex.value + 1) % logoList.length;
+  }, 4000);
+});
+
 
 // 站点链接
 const siteUrl = computed(() => {
@@ -100,13 +113,33 @@ watch(
 
 <style lang="scss" scoped>
   .message {
-      .ck-slide {
-          width:156px;
-            height:120px;
-        }
-        .ck-slide ul.ck-slide-wrapper {
-            height:30px;
-        }
+.logo-img-wrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.75);
+  box-shadow:
+    0 0 0 6px rgba(255, 255, 255, 0.15),
+    0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.fade-logo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.fade-logo.active {
+  opacity: 1;
+}
 
   .logo {
     display: flex;
