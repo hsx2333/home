@@ -7,10 +7,10 @@
     <div class="ck-slide">
         <ul class="ck-slide-wrapper">
             <li>
-                <img src="img/icon/logo.png" alt="">
+                <img src="/images/icon/logo.png" alt="">
             </li>
             <li style="display:none">
-                <img src="img/icon/logo2.png" alt="">
+                <img src="/images/icon/logo2.png" alt="">
             </li>
         </ul>
             </div>
