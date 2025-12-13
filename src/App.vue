@@ -7,49 +7,6 @@
 
   <!-- 页面内容 -->
   <router-view />
-</template>
-
-<script setup>
-import { onMounted } from "vue";
-import Granim from "granim";
-
-onMounted(() => {
-  new Granim({
-    element: "#canvas-basic",
-    direction: "left-right",
-    isPausedWhenNotInView: true,
-    states: {
-      "default-state": {
-        gradients: [
-          ["#a18cd1", "#fbc2eb"],
-          ["#fff1eb", "#ace0f9"],
-          ["#d4fc79", "#96e6a1"],
-          ["#a1c4fd", "#c2e9fb"],
-          ["#a8edea", "#fed6e3"],
-          ["#9890e3", "#b1f4cf"],
-        ],
-      },
-    },
-  });
-});
-</script>
-
-<style>
-/* 注意：这里不要 scoped */
-#canvas-basic {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -999;
-}
-</style>
-<style>
-/* 全局背景控制 */
-body {
-  background: transparent;
-}
-</style>
 
   <!-- 主界面 -->
   <Transition name="fade" mode="out-in">
@@ -81,6 +38,10 @@ body {
   </Transition>
 </template>
 
+
+
+
+
 <script setup>
 import { helloInit, checkDays } from "@/utils/getTime.js";
 import { HamburgerButton, CloseSmall } from "@icon-park/vue-next";
@@ -95,8 +56,30 @@ import Box from "@/views/Box/index.vue";
 import MoreSet from "@/views/MoreSet/index.vue";
 import cursorInit from "@/utils/cursor.js";
 import config from "@/../package.json";
-
+import { onMounted } from "vue";
+import Granim from "granim";
+  
 const store = mainStore();
+
+onMounted(() => {
+  new Granim({
+    element: "#canvas-basic",
+    direction: "left-right",
+    isPausedWhenNotInView: true,
+    states: {
+      "default-state": {
+        gradients: [
+          ["#a18cd1", "#fbc2eb"],
+          ["#fff1eb", "#ace0f9"],
+          ["#d4fc79", "#96e6a1"],
+          ["#a1c4fd", "#c2e9fb"],
+          ["#a8edea", "#fed6e3"],
+          ["#9890e3", "#b1f4cf"],
+        ],
+      },
+    },
+  });
+});
 
 // 页面宽度
 const getWidth = () => {
@@ -171,7 +154,22 @@ onBeforeUnmount(() => {
   window.removeEventListener("resize", getWidth);
 });
 </script>
-
+<style>
+/* 注意：这里不要 scoped */
+#canvas-basic {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -999;
+}
+</style>
+<style>
+/* 全局背景控制 */
+body {
+  background: transparent;
+}
+</style>
 <style lang="scss" scoped>
 #main {
   position: absolute;
