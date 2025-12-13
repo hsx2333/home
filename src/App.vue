@@ -44,6 +44,13 @@ onMounted(() => {
   z-index: -999;
 }
 </style>
+<style>
+/* 全局背景控制 */
+body {
+  background: transparent;
+}
+</style>
+
   <!-- 主界面 -->
   <Transition name="fade" mode="out-in">
     <main id="main" v-if="store.imgLoadStatus">
