@@ -2,12 +2,12 @@
   {
     "icon": "Blog",
     "name": "主页",
-    "link": "https://cdn.5207777.xyz/1.html"
+    "link": "https://7777110.xyz/1.html"
   },
   {
     "icon": "Cloud",
     "name": "网盘",
-    "link": "https://pan.5207777.xyz/"
+    "link": "https://pan.7777110.xyz/"
   },
   {
     "icon": "CompactDisc",
@@ -18,6 +18,11 @@
     "icon": "Compass",
     "name": "图片转换",
     "link": "https://imageresizer.com/zh"
+  },
+  {
+    "icon": "Book",
+    "name": "邮箱",
+    "link": "https://mail.7777110.xyz/"
   },
   {
     "icon": "Book",
