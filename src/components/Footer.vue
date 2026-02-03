@@ -21,10 +21,10 @@
         </span>
         <!-- 站点备案 -->
       <span v-if="siteIcp">
-        &amp;
-        <a href="https://beian.mps.gov.cn/#/query/webSearch?code=37148202000517" rel="noreferrer" target="_blank"><i class="beian2"></i>
+        &amp;<i class="beian2">
+        <a href="https://beian.mps.gov.cn/#/query/webSearch?code=37148202000517" rel="noreferrer" target="_blank">
           {{ siteIcp }}
-        </a>
+        </a></i>
       </span>
       </div>
       <div v-else class="lrc">
