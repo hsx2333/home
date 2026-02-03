@@ -23,8 +23,7 @@
       <span v-if="siteIcp">
         &amp;<i class="beian2">
         <a href="https://beian.mps.gov.cn/#/query/webSearch?code=37148202000517" rel="noreferrer" target="_blank">
-          {{ siteIcp }}
-        </a></i>
+        </a></i>{{ siteIcp }}
       </span>
       </div>
       <div v-else class="lrc">
