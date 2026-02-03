@@ -22,7 +22,7 @@
         <!-- 站点备案 -->
       <span v-if="siteIcp">
         &amp;
-        <a href="https://beian.mps.gov.cn/#/query/webSearch?code=37148202000517" rel="noreferrer" target="_blank">
+        <a href="https://beian.mps.gov.cn/#/query/webSearch?code=37148202000517" rel="noreferrer" target="_blank"><img src="beian.png">
           {{ siteIcp }}
         </a>
       </span>
