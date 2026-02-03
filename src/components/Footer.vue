@@ -21,9 +21,7 @@
         </span>
         <!-- 站点备案 -->
       <span v-if="siteIcp">
-        &amp;<i class="beian2">
-        <a href="https://beian.mps.gov.cn/#/query/webSearch?code=37148202000517" rel="noreferrer" target="_blank">
-        </a></i>{{ siteIcp }}
+        &amp;<a data-v-0051660b="" href="https://beian.mps.gov.cn/#/query/webSearch?code=37148202000517" rel="noreferrer" target="_blank"><i data-v-0051660b="" class="beian2"></i>{{ siteIcp }}</a>
       </span>
       </div>
       <div v-else class="lrc">
